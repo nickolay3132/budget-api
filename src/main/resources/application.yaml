@@ -1,3 +1,20 @@
 spring:
   application:
-    name: api
+    name: budget-api
+  profiles:
+    active: dev
+
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
